@@ -1,0 +1,11 @@
+{
+  "name": "gulp4_es2015",
+  "version": "1.0.0",
+  "description": "gulp template",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "n.danyliak@gmail.com",
+  "license": "ISC"
+}
