@@ -7,5 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "n.danyliak@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "browser-sync": "^2.14.3",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-if": "^2.0.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0"
+  }
 }
