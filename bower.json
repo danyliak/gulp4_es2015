@@ -1,0 +1,31 @@
+{
+  "name": "gulp4_es2015",
+  "description": "gulp template",
+  "main": "",
+  "authors": [
+    "n.danyliak@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "owl.carousel": "^2.1.6",
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.7"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "./dist/js/bootstrap.js",
+        "./dist/css/bootstrap.css",
+        "./dist/fonts/*.*"
+      ]
+    }
+  }
+}
