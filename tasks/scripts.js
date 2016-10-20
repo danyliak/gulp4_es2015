@@ -6,7 +6,10 @@ const $ = loadPlugins();
 
 export default (options) => {
     return () => {
-        return gulp.src(options.src, {since: gulp.lastRun('build:appScripts')})
+        //return gulp.src(options.src, {since: gulp.lastRun('build:appScripts')})
+        return gulp.src(options.src)
+            .pipe($.jshint())
+            .pipe($.jshint.reporter('default'))
             .pipe($.concat('app.js'))
             .pipe($.if(options.isProd, $.rename({suffix: '.min'})))
             .pipe($.if(options.isProd, $.uglify()))

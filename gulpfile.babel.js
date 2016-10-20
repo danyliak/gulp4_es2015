@@ -11,14 +11,14 @@ let lazyRequireTask = (taskName, path, options) => {
         return task();
     })
 };
-// app main paths
+// main paths
 const paths = {
-    scripts: 'app/js/**/*.js',
-    styles: ['app/sass/**/*.scss', 'app/sass/**/*.sass'],
-    images: 'app/img/**/*',
-    fonts: 'app/fonts/**/*',
-    index: 'app/index.html',
-    otherPages: ['app/**/*.html', '!app/index.html'],
+    scripts: ['src/app/**/*.js', '!**/tests/*.js'],
+    styles: ['src/sass/**/*.scss', 'src/sass/**/*.sass'],
+    images: 'src/img/**/*',
+    fonts: 'src/fonts/**/*',
+    index: 'src/index.html',
+    otherPages: ['src/**/*.html', '!src/index.html'],
     baseDir: 'dist',
 };
 
@@ -38,7 +38,7 @@ lazyRequireTask('build:fonts', './tasks/fonts', {
 });
 lazyRequireTask('build:appScripts', './tasks/scripts', {
     src: paths.scripts,
-    dest: paths.baseDir + '/js',
+    dest: paths.baseDir + '/app',
     isProd: isProd
 });
 lazyRequireTask('build:images', './tasks/images', {
@@ -46,7 +46,7 @@ lazyRequireTask('build:images', './tasks/images', {
     dest: paths.baseDir + '/img',
     isProd: isProd
 });
-lazyRequireTask('build:index', './tasks/index', {
+lazyRequireTask('build:indexFile', './tasks/index-file', {
     src: paths.index,
     dest: paths.baseDir,
     isProd: isProd
@@ -66,7 +66,7 @@ lazyRequireTask('watch', './tasks/watch', {
 gulp.task('build', gulp.series(
     'clean',
     gulp.parallel('build:sass', 'build:fonts', 'build:appScripts', 'build:images'),
-    gulp.parallel('build:index', 'build:otherPages'),
+    gulp.parallel('build:indexFile', 'build:otherPages'),
     gulp.parallel('watch', 'serve')
 ));
 
