@@ -13,7 +13,7 @@ export default (options) => {
             .pipe($.jshint.reporter('jshint-summary'))
             .pipe($.notify( (file) => {
                 if (file.jshint.success) return false
-                return "Before commit check js-errors: " + file.jshint.results.length + " errors in src/" + file.relative;
+                return "Before commit check js-errors: " + file.jshint.results.length + " errors in " + file.relative;
             }))
             .pipe($.jshint.reporter('fail'));
     };
