@@ -2,6 +2,14 @@ import gulp from 'gulp';
 
 let isProd = (process.argv.indexOf("-prod") > -1) ? true : false;
 
+
+
+import guppyFn from 'git-guppy';
+const guppy = guppyFn(gulp);
+
+
+
+
 let lazyRequireTask = (taskName, path, options) => {
     options = options || {};
     gulp.task(taskName, () => {
@@ -61,7 +69,20 @@ lazyRequireTask('build:otherPages', './tasks/otherPages', {
     isProd: isProd
 });
 
-lazyRequireTask('pre-commit', './tasks/pre-commit', {});
+//lazyRequireTask('pre-commit', './tasks/pre-commit', {});
+
+gulp.task('pre-commit', function () {
+    return gulp.src(guppy.src('pre-commit'))
+        .pipe($.filter(['*.js']))
+        .pipe($.debug())
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-summary'))
+        .pipe($.notify( (file) => {
+            if (file.jshint.success) return false
+            return "Before commit check js-errors: " + file.jshint.results.length + " errors in src/" + file.relative;
+        }))
+        .pipe($.jshint.reporter('fail'));
+});
 
 lazyRequireTask('clean', './tasks/clean', {
     src: paths.baseDir,
