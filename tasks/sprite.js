@@ -11,7 +11,10 @@ export default (options) => {
 
         let spriteData = gulp.src(options.src).pipe($.spritesmith({
             imgName: 'sprite.png',
-            cssName: 'sprite.css'
+            cssName: 'sprite.css',
+            imgPath: '../img/sprite.png'
+            //retinaImgName: 'sprite@2x.png',
+            //retinaSrcFilter: ['./src/img/sprites/*@2x.*']
         }));
 
         let imgStream = spriteData.img

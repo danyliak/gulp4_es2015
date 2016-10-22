@@ -11,6 +11,7 @@ export default (options) => {
             $.remember.forget('appScripts', path.resolve(filepath));
         });
         gulp.watch(options.paths.images, gulp.series('build:images'));
+        gulp.watch(options.paths.sprites, gulp.series('build:sprite'));
         gulp.watch(options.paths.fonts, gulp.series('build:fonts'));
         gulp.watch(options.paths.index, gulp.series('build:indexFile'));
         gulp.watch(options.paths.otherPages, gulp.series('build:otherPages'));

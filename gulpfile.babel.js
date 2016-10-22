@@ -61,6 +61,8 @@ lazyRequireTask('build:otherPages', './tasks/otherPages', {
     isProd: isProd
 });
 
+lazyRequireTask('pre-commit', './tasks/pre-commit', {});
+
 lazyRequireTask('clean', './tasks/clean', {
     src: paths.baseDir,
 });
@@ -78,13 +80,9 @@ gulp.task('build', gulp.series(
 gulp.task('default', gulp.series('build'));
 
 
-// img spritess
-
 // create github release from gulp
 
 // https://github.com/therealklanni/git-guppy
-
-// gulp.remember before js / images / html
 
 // gulp-sftp
 
