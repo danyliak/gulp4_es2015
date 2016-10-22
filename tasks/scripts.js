@@ -11,7 +11,7 @@ export default (options) => {
             .pipe($.jshint.reporter('jshint-summary'))
             .pipe($.notify( (file) => {
                 if (file.jshint.success) return false
-                return "jshint: " + file.jshint.results.length + " errors in src/" + file.relative;
+                return "jshint: " + file.jshint.results.length + " errors in src/app/" + file.relative;
             }))
             .pipe($.concat('app.js'))
             .pipe($.if(options.isProd, $.rename({suffix: '.min'})))

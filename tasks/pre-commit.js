@@ -7,7 +7,7 @@ const guppy = guppyFn(gulp);
 export default (options) => {
     return () => {
         return gulp.src(guppy.src('pre-commit'))
-            .pipe($.filter(['*.js']))
+            .pipe($.filter(['src/**/*.js']))
             .pipe($.debug())
             .pipe($.jshint())
             .pipe($.jshint.reporter('jshint-summary'))

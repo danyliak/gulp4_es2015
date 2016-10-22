@@ -7,10 +7,7 @@
 
     function Component1Ctrl() {
         var vm = this;
-        var vm.name = 'Mike22';
-        var vm.name2 = 'Mike22';
-        var vm.name3 = 'Mike22';
-
+        vm.name = 'Mike22';
 
 
     }
