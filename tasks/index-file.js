@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp from 'gulp';
 import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
@@ -27,5 +25,3 @@ export default (options) => {
             .pipe(gulp.dest(options.dest));
     };
 };
-
-

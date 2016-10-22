@@ -7,6 +7,7 @@
 
     function Component1Ctrl() {
         var vm = this;
+        vm.name = 'Mike22';
 
     }
 

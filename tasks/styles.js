@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp from 'gulp';
 import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
@@ -13,7 +11,7 @@ export default (options) => {
                 })
             }))
             .pipe($.sourcemaps.init())
-            .pipe($.sass().on('error', $.sass.logError))
+            .pipe($.sass())
             .pipe($.concat('app.css'))
             .pipe($.autoprefixer({browsers: ['last 30 versions'], cascade: false}))
             .pipe($.sourcemaps.write())

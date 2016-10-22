@@ -1,8 +1,6 @@
-'use strict';
-
 import gulp from 'gulp';
 
-let isProd = (process.argv.indexOf("--production") > -1) ? true : false;
+let isProd = (process.argv.indexOf("-prod") > -1) ? true : false;
 
 let lazyRequireTask = (taskName, path, options) => {
     options = options || {};
@@ -15,7 +13,8 @@ let lazyRequireTask = (taskName, path, options) => {
 const paths = {
     scripts: ['src/app/**/*.js', '!**/tests/*.js'],
     styles: ['src/sass/**/*.scss', 'src/sass/**/*.sass'],
-    images: 'src/img/**/*',
+    images: ['src/img/**/*', '!src/img/sprites/**/*'],
+    sprites: 'src/img/sprites/**/*',
     fonts: 'src/fonts/**/*',
     index: 'src/index.html',
     otherPages: ['src/**/*.html', '!src/index.html'],
@@ -46,6 +45,11 @@ lazyRequireTask('build:images', './tasks/images', {
     dest: paths.baseDir + '/img',
     isProd: isProd
 });
+lazyRequireTask('build:sprite', './tasks/sprite', {
+    src: paths.sprites,
+    dest: paths.baseDir,
+    isProd: isProd
+});
 lazyRequireTask('build:indexFile', './tasks/index-file', {
     src: paths.index,
     dest: paths.baseDir,
@@ -65,7 +69,7 @@ lazyRequireTask('watch', './tasks/watch', {
 });
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('build:sass', 'build:fonts', 'build:appScripts', 'build:images'),
+    gulp.parallel('build:sass', 'build:fonts', 'build:appScripts', 'build:images', 'build:sprite'),
     gulp.parallel('build:indexFile', 'build:otherPages'),
     gulp.parallel('watch', 'serve')
 ));
@@ -78,12 +82,9 @@ gulp.task('default', gulp.series('build'));
 
 // create github release from gulp
 
-// gulp.newer before image optimization
+// https://github.com/therealklanni/git-guppy
 
 // gulp.remember before js / images / html
 
-// minify vendorScripts in production
-
 // gulp-sftp
 
-// jslint
