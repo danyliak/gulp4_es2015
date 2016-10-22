@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jshint": "gulp pre-commit"
+    "jshint": "gulp pre-commit",
+    "start": " npm istall && bower install && gulp"
   },
   "author": "n.danyliak@gmail.com",
   "license": "ISC",
