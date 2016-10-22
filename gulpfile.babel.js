@@ -3,7 +3,8 @@ import gulp from 'gulp';
 let isProd = (process.argv.indexOf("-prod") > -1) ? true : false;
 
 
-
+import loadPlugins from 'gulp-load-plugins';
+const $ = loadPlugins();
 import guppyFn from 'git-guppy';
 const guppy = guppyFn(gulp);
 

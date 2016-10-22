@@ -9,6 +9,8 @@
         var vm = this;
         var vm.name = 'Mike22';
         var vm.name2 = 'Mike22';
+        var vm.name3 = 'Mike22';
+
 
 
     }
