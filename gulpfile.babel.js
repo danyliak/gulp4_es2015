@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 
-let isProd = (process.argv.indexOf("-prod") > -1) ? true : false;
+let isProd = (process.argv.indexOf("--production") > -1) ? true : false;
 
-let lazyRequireTask = (taskName, path, options) => {
+const lazyRequireTask = (taskName, path, options) => {
     options = options || {};
     gulp.task(taskName, () => {
         let task = require(path).default.call(this, options);
@@ -18,6 +18,7 @@ const paths = {
     fonts: 'src/fonts/**/*',
     index: 'src/index.html',
     otherPages: ['src/**/*.html', '!src/index.html'],
+    otherAssets: ['src/.htaccess'],
     baseDir: 'dist',
 };
 
@@ -61,7 +62,17 @@ lazyRequireTask('build:otherPages', './tasks/otherPages', {
     isProd: isProd
 });
 
+lazyRequireTask('build:otherAssets', './tasks/otherAssets', {
+    src: paths.otherAssets,
+    dest: paths.baseDir,
+});
+
 lazyRequireTask('pre-commit', './tasks/pre-commit', {});
+
+lazyRequireTask('deploy', './tasks/deploy', {
+    src: paths.baseDir
+});
+
 
 lazyRequireTask('clean', './tasks/clean', {
     src: paths.baseDir,
@@ -71,18 +82,9 @@ lazyRequireTask('watch', './tasks/watch', {
 });
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('build:sass', 'build:fonts', 'build:appScripts', 'build:images', 'build:sprite'),
+    gulp.parallel('build:sass', 'build:fonts', 'build:appScripts', 'build:images', 'build:sprite', 'build:otherAssets'),
     gulp.parallel('build:indexFile', 'build:otherPages'),
     gulp.parallel('watch', 'serve')
 ));
 
-
 gulp.task('default', gulp.series('build'));
-
-
-// create github release from gulp
-
-// https://github.com/therealklanni/git-guppy
-
-// gulp-sftp
-
