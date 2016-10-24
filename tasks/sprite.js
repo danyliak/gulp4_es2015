@@ -6,7 +6,7 @@ import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
 
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
 
         let spriteData = gulp.src(options.src).pipe($.spritesmith({

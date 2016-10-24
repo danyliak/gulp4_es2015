@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
 
         return gulp.src(options.src)

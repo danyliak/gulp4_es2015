@@ -1,7 +1,9 @@
 import del from 'del';
 
-export default (options) => {
+module.exports = (options) => {
+
     return () => {
         return del(options.src);
     };
-};
+}
+

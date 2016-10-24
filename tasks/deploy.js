@@ -3,7 +3,7 @@ import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
 
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
 
         return gulp.src(options.src)

@@ -1,7 +1,7 @@
 import browserSync from 'browser-sync';
 let bs = browserSync.create();
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
         bs.init({
             port: 8000,

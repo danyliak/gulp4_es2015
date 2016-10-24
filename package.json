@@ -4,7 +4,7 @@
   "description": "gulp template",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start",
     "jshint": "gulp pre-commit",
     "start": " npm install && bower install && gulp"
   },
@@ -42,8 +42,14 @@
     "gulp-uglify": "^2.0.0",
     "gulp.spritesmith": "^6.2.1",
     "imagemin-pngquant": "^5.0.0",
+    "istanbul": "^0.4.5",
+    "jasmine-core": "^2.5.2",
     "jshint": "^2.9.3",
     "jshint-summary": "^0.4.0",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
     "merge-stream": "^1.0.0",
     "path": "^0.12.7",
     "pre-commit": "^1.1.3",

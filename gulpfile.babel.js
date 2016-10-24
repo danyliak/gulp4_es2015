@@ -5,7 +5,7 @@ let isProd = (process.argv.indexOf("--production") > -1) ? true : false;
 const lazyRequireTask = (taskName, path, options) => {
     options = options || {};
     gulp.task(taskName, () => {
-        let task = require(path).default.call(this, options);
+        let task = require(path).call(this, options);
         return task();
     })
 };

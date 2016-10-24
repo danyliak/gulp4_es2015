@@ -3,7 +3,7 @@ import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
 import pngquant from 'imagemin-pngquant';
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
         return gulp.src(options.src, {since: gulp.lastRun('build:images')})
             .pipe($.newer(options.dest))

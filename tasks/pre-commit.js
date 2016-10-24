@@ -4,7 +4,7 @@ import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
 const guppy = guppyFn(gulp);
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
         return gulp.src(guppy.src('pre-commit'))
             .pipe($.filter(['src/**/*.js']))

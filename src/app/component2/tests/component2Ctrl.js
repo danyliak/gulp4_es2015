@@ -1,5 +1,5 @@
 describe('app.component2', function() {
-    beforeEach(module('app.app.component2'));
+    beforeEach(module('app.component2'));
 
     var $controller;
 

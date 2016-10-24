@@ -4,7 +4,7 @@ import path from 'path';
 import loadPlugins from 'gulp-load-plugins';
 const $ = loadPlugins();
 
-export default (options) => {
+module.exports = (options) => {
     return () => {
         gulp.watch(options.paths.styles, gulp.series('build:sass'));
         gulp.watch(options.paths.scripts, gulp.series('build:appScripts')).on('unlink', function(filepath) {

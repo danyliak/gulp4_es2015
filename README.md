@@ -1,7 +1,11 @@
-# # gulp4 + ES2015 template for AngularJS v1.5 project
-Install template:
+# # gulp4 + ES2015 template for AngularJS v1.5
+Install and run template:
 ```
-npm install
+npm start
+```
+or
+```
+npm install && bower install && gulp
 ```
 Start using gulp:
 ```

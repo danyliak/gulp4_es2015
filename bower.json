@@ -15,10 +15,10 @@
     "tests"
   ],
   "dependencies": {
-    "owl.carousel": "^2.1.6",
     "jquery": "^3.1.0",
     "bootstrap": "^3.3.7",
-    "angular": "^1.5.8"
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8"
   },
   "overrides": {
     "jquery": {
@@ -31,12 +31,6 @@
         "./dist/js/bootstrap.min.js",
         "./dist/css/bootstrap.min.css",
         "./dist/fonts/*.*"
-      ]
-    },
-    "owl.carousel": {
-      "main": [
-        "./dist/assets/owl.carousel.min.css",
-        "./dist/owl.carousel.min.js"
       ]
     },
     "angular": {
